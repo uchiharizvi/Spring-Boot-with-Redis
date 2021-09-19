@@ -1,5 +1,7 @@
 package com.caching.example.microservicescaching.service;
 
+import com.caching.example.microservicescaching.model.response.userdetailsresponse.UsersDetailsResponse;
+
 public interface UserDetails {
-    String getUserDetails() throws Exception;
+    UsersDetailsResponse getUserDetails() throws Exception;
 }
