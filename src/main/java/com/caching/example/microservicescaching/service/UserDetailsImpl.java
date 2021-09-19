@@ -2,6 +2,8 @@ package com.caching.example.microservicescaching.service;
 
 import com.caching.example.microservicescaching.model.response.userdetailsresponse.UsersDetailsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.*;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -18,6 +20,7 @@ public class UserDetailsImpl implements UserDetails {
     private RestTemplate template;
 
     @Override
+    @Cacheable(value = "itemCache")
     public UsersDetailsResponse getUserDetails() throws Exception {
         ResponseEntity<UsersDetailsResponse> response = template.exchange("https://reqres.in/api/users",
                 HttpMethod.GET, getHttpEntity(), UsersDetailsResponse.class);
