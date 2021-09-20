@@ -15,3 +15,6 @@ redis-server.service - Advanced key-value store
    CGroup: /system.slice/redis-server.service
 
            └─5410 /usr/bin/redis-server 127.0.0.1:6379
+
+
+conf file : /etc/redis/redis.conf
